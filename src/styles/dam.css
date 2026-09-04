@@ -1,0 +1,230 @@
+[data-dam-ai-root] {
+  --dam-bg: var(--dam-bg, #ffffff);
+  --dam-text: var(--dam-text, #1a1a1a);
+  --dam-border: var(--dam-border, #e5e7eb);
+  --dam-muted: var(--dam-muted, #6b7280);
+  --dam-surface: var(--dam-surface, #f9fafb);
+  --dam-hover: var(--dam-hover, #f3f4f6);
+  --dam-primary: var(--dam-primary, #7c3aed);
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--dam-text);
+}
+
+[data-dam-ai-root] * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[data-dam-ai-toggle] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--dam-border);
+  border-radius: 6px;
+  background: var(--dam-surface);
+  color: var(--dam-muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 150ms ease;
+  user-select: none;
+}
+
+[data-dam-ai-toggle]:hover {
+  background: var(--dam-hover);
+  border-color: var(--dam-primary);
+}
+
+[data-dam-ai-toggle][aria-pressed="true"] {
+  background: var(--dam-primary);
+  border-color: var(--dam-primary);
+  color: #ffffff;
+}
+
+[data-dam-ai-toggle]:focus-visible {
+  outline: 2px solid var(--dam-primary);
+  outline-offset: 2px;
+}
+
+[data-dam-ai-toggle-dot] {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+[data-dam-ai-card] {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 8px;
+  width: 380px;
+  max-height: 500px;
+  background: var(--dam-bg);
+  border: 1px solid var(--dam-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  z-index: 10000;
+  animation: dam-fade-in 150ms ease;
+}
+
+@keyframes dam-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-dam-ai-card-header] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--dam-border);
+}
+
+[data-dam-ai-card-title] {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dam-text);
+}
+
+[data-dam-ai-card-progress] {
+  font-size: 12px;
+  color: var(--dam-muted);
+}
+
+[data-dam-ai-card-body] {
+  padding: 16px;
+}
+
+[data-dam-ai-question-text] {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--dam-text);
+  margin-bottom: 12px;
+}
+
+[data-dam-ai-option] {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  text-align: left;
+  background: var(--dam-surface);
+  border: 1px solid var(--dam-border);
+  border-radius: 8px;
+  color: var(--dam-text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 100ms ease;
+}
+
+[data-dam-ai-option]:hover {
+  background: var(--dam-hover);
+  border-color: var(--dam-primary);
+}
+
+[data-dam-ai-option][aria-selected="true"] {
+  background: var(--dam-primary);
+  border-color: var(--dam-primary);
+  color: #ffffff;
+}
+
+[data-dam-ai-card-footer] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid var(--dam-border);
+}
+
+[data-dam-ai-btn] {
+  padding: 6px 12px;
+  border: 1px solid var(--dam-border);
+  border-radius: 6px;
+  background: var(--dam-surface);
+  color: var(--dam-muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 100ms ease;
+}
+
+[data-dam-ai-btn]:hover {
+  background: var(--dam-hover);
+  color: var(--dam-text);
+}
+
+[data-dam-ai-btn-primary] {
+  background: var(--dam-primary);
+  border-color: var(--dam-primary);
+  color: #ffffff;
+}
+
+[data-dam-ai-btn-primary]:hover {
+  opacity: 0.9;
+}
+
+[data-dam-ai-loader] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 16px;
+}
+
+[data-dam-ai-spinner] {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--dam-border);
+  border-top-color: var(--dam-primary);
+  border-radius: 50%;
+  animation: dam-spin 600ms linear infinite;
+}
+
+@keyframes dam-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+[data-dam-ai-loader-text] {
+  font-size: 14px;
+  color: var(--dam-muted);
+}
+
+[data-dam-ai-toast] {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: var(--dam-bg);
+  border: 1px solid var(--dam-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-size: 13px;
+  color: var(--dam-text);
+  z-index: 10001;
+  animation: dam-fade-in 150ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-dam-ai-card],
+  [data-dam-ai-toast] {
+    animation: none;
+  }
+  [data-dam-ai-spinner] {
+    animation: none;
+  }
+}
